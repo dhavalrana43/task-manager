@@ -64,18 +64,22 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
         justify={"space-between"}
       >
         <Text
-          color={todo.completed ? "green.200" : "yellow.100"}
+          color={
+            todo.completed
+              ? { base: "green.500", _dark: "green.200" }
+              : { base: "yellow.500", _dark: "yellow.100" }
+          }
           textDecoration={todo.completed ? "line-through" : "none"}
         >
           {todo.body}
         </Text>
         {todo.completed && (
-          <Badge ml="1" colorScheme="green">
+          <Badge ml="1" colorPalette="green">
             Done
           </Badge>
         )}
         {!todo.completed && (
-          <Badge ml="1" colorScheme="yellow">
+          <Badge ml="1" colorPalette="yellow">
             In Progress
           </Badge>
         )}

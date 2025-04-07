@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <Container maxW={"900px"}>
       <Box
-        bg={{ base: "gray.400", _dark: "gray.700" }}
+        bg={{ base: "gray.300", _dark: "gray.700" }}
         px={4}
         my={4}
         rounded="md"
