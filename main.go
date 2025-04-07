@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v3"
-	"github.com/gofiber/fiber/v3/middleware/cors"
 	"github.com/gofiber/fiber/v3/middleware/static"
 	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/bson"
@@ -55,10 +54,10 @@ func main() {
 	collection = client.Database("golang_db").Collection("todos")
 
 	app := fiber.New()
-	app.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"http://localhost:5173"},
-		AllowHeaders: []string{"Origin", "Content-Type", "Accept"},
-	}))
+	// app.Use(cors.New(cors.Config{
+	// 	AllowOrigins: []string{"http://localhost:5173"},
+	// 	AllowHeaders: []string{"Origin", "Content-Type", "Accept"},
+	// }))
 
 	app.Get("/api/todos", getTodos)
 	app.Post("/api/todos", createTodo)
