@@ -54,6 +54,7 @@ func main() {
 	collection = client.Database("golang_db").Collection("todos")
 
 	app := fiber.New()
+
 	// app.Use(cors.New(cors.Config{
 	// 	AllowOrigins: []string{"http://localhost:5173"},
 	// 	AllowHeaders: []string{"Origin", "Content-Type", "Accept"},
@@ -69,7 +70,7 @@ func main() {
 		port = "5000"
 	}
 
-	if os.Getenv("MODE") == "production" {
+	if os.Getenv("ENV") == "production" {
 		app.Get("/*", static.New("./client/dist"))
 	}
 
